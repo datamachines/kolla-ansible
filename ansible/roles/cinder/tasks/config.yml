@@ -85,6 +85,7 @@
       - "{{ node_custom_config }}/cinder.conf"
       - "{{ node_custom_config }}/cinder/{{ item.key }}.conf"
       - "{{ node_custom_config }}/cinder/{{ inventory_hostname }}/cinder.conf"
+      - "{{ node_custom_config }}/cinder/{{ inventory_hostname }}/{{ item.key }}.conf"
     dest: "{{ node_config_directory }}/{{ item.key }}/cinder.conf"
     mode: "0660"
   become: true
