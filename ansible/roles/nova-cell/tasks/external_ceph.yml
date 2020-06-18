@@ -60,7 +60,7 @@
 
 - name: Copy over ceph.conf
   template:
-    src: "{{ node_custom_config }}/nova/ceph.conf"
+    src: "{{ node_custom_config }}/nova/{{ inventory_hostname }}/ceph.conf"
     dest: "{{ node_config_directory }}/{{ item }}/"
     mode: "0660"
   become: true
