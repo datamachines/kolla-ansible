@@ -6,7 +6,7 @@
       - "cinder-backup"
   merge_configs:
     sources:
-      - "{{ node_custom_config }}/{{ inventory_hostname }}/cinder/ceph.conf"
+      - "{{ node_custom_config }}/cinder/ceph.conf"
       - "{{ node_custom_config }}/cinder/{{ inventory_hostname }}/{{ item.key }}/ceph.conf"
     dest: "{{ node_config_directory }}/{{ item.key }}/ceph.conf"
     mode: "0660"
