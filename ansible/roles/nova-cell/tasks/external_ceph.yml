@@ -11,7 +11,7 @@
 
 - name: Check nova keyring file
   stat:
-    path: "{{ node_custom_config }}/nova/{{ ceph_nova_keyring }}"
+    path: "{{ node_custom_config }}/nova/{{ inventory_hostname }}/{{ ceph_nova_keyring }}"
   delegate_to: localhost
   run_once: True
   register: nova_cephx_keyring_file
@@ -22,7 +22,7 @@
 
 - name: Check cinder keyring file
   stat:
-    path: "{{ node_custom_config }}/nova/{{ ceph_cinder_keyring }}"
+    path: "{{ node_custom_config }}/nova/{{ inventory_hostname }}/{{ ceph_cinder_keyring }}"
   delegate_to: localhost
   run_once: True
   register: cinder_cephx_keyring_file
@@ -63,7 +63,7 @@
 
 - name: Copy over ceph.conf
   template:
-    src: "{{ node_custom_config }}/nova/ceph.conf"
+    src: "{{ node_custom_config }}/nova/{{ inventory_hostname }}/ceph.conf"
     dest: "{{ node_config_directory }}/{{ item }}/"
     mode: "0660"
   become: true
