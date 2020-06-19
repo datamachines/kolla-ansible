@@ -11,7 +11,7 @@
 
 - name: Check nova keyring file
   local_action: stat path="{{ node_custom_config }}/nova/{{ inventory_hostname }}/ceph.client.nova.keyring"
-  run_once: True
+  run_once: False
   register: nova_cephx_keyring_file
   failed_when: not nova_cephx_keyring_file.stat.exists
   when:
@@ -20,7 +20,7 @@
 
 - name: Check cinder keyring file
   local_action: stat path="{{ node_custom_config }}/nova/{{ inventory_hostname }}/ceph.client.cinder.keyring"
-  run_once: True
+  run_once: False
   register: cinder_cephx_keyring_file
   failed_when: not cinder_cephx_keyring_file.stat.exists
   when:
